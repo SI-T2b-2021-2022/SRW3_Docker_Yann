@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+  # Conteneur PHP
+  php:
+    image: php:7.2.2-apache
+    container_name: php_web
+    depends_on:
+      - db
+    volumes:
+      - /data/lamp/php:/var/www/html/
+    ports:
+      - "80:80"
+  # Conteneur MYSQL
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    volumes:
+      - /data/lamp/db/:/var/lib/mysql
+    restart: always
+  # Conteneur PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - "8181:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: mysql
