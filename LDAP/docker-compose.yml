@@ -1,8 +1,9 @@
 version: '3.3'
 services:
   openldap:
-    image: osixia/openldap:latest
+    # image: osixia/openldap:latest
     container_name: openldap
+    build: ./ldap
     hostname: openldap
     ports: 
       - "389:389"
@@ -12,6 +13,12 @@ services:
       - /data/openldap/slapd/database:/var/lib/ldap
       - /data/openldap/slapd/config:/etc/ldap/slapd.d
     environment: 
+      - LDAP_ORGANISATION=cpnv-srw3
+      - LDAP_DOMAIN=cpnv-srw3.ch
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=admin_pass
+      - LDAP_CONFIG_PASSWORD=conf_pass
+      - "LDAP_BASE_DN=dc=cpnv-srw3,dc=ch"
       - LDAP_TLS_CRT_FILENAME=server.crt
       - LDAP_TLS_KEY_FILENAME=server.key
       - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.crt
