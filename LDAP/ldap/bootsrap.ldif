@@ -1,0 +1,22 @@
+dn: ou=People,dc=cpnv-srw3,dc=ch
+changetype: add
+objectclass: organizationalUnit
+ou: People
+
+dn: cn=user1,dc=People,dc=cpnv-srw3,dc=ch
+changetype: add
+objectclass: inetOrgPerson
+cn: user01
+givenname: user01
+sn: user01
+displayname: user01
+userpassword: Mot2Pa$$301
+
+dn: cn=user2,dc=People,dc=cpnv-srw3,dc=ch
+changetype: add
+objectclass: inetOrgPerson
+cn: user02
+givenname: user02
+sn: user02
+displayname: user02
+userpassword: Mot2Pa$$302

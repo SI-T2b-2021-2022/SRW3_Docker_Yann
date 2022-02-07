@@ -1,62 +1,9 @@
-version: '3.1'
-services:
-  openldap:
-    image: osixia/openldap:1.5.0
-    container_name: openldap
-    environment:
-      LDAP_LOG_LEVEL: "256"
-      LDAP_ORGANISATION: "cpnv-srw3"
-      LDAP_DOMAIN: "cpnv-srw3.ch"
-      LDAP_BASE_DN: ""
-      LDAP_ADMIN_PASSWORD: "Pa$$w0rd"
-      LDAP_CONFIG_PASSWORD: "config"
-      LDAP_USERS: "user01,user02"
-      LDAP_PASSWORDS: "Mot2Pa$$301,Mot2Pa$$302"
-      LDAP_ROOT: "dc=cpnv-srw3,dc=ch"
-      LDAP_USER_DC: "dc=People,dc=cpnv-srw3,dc=ch"
-      TZ: "Erope/Zurich"
-      LDAP_READONLY_USER: "false"
-      LDAP_RFC2307BIS_SCHEMA: "false"
-      LDAP_BACKEND: "mdb"
-      LDAP_TLS: "true"
-      LDAP_TLS_CRT_FILENAME: "ldap.crt"
-      LDAP_TLS_KEY_FILENAME: "ldap.key"
-      LDAP_TLS_DH_PARAM_FILENAME: "dhparam.pem"
-      LDAP_TLS_CA_CRT_FILENAME: "ca.crt"
-      LDAP_TLS_ENFORCE: "false"
-      LDAP_TLS_CIPHER_SUITE: "SECURE256:-VERS-SSL3.0"
-      LDAP_TLS_VERIFY_CLIENT: "demand"
-      LDAP_REPLICATION: "false"
-      KEEP_EXISTING_CONFIG: "false"
-      LDAP_REMOVE_CONFIG_AFTER_SETUP: "true"
-      LDAP_SSL_HELPER_PREFIX: "ldap"
-    tty: true
-    stdin_open: true
-    volumes:
-      - '/data/openldap/ldap:/var/lib/ldap'
-      - '/data/openldap/slapd.d:/etc/ldap/slapd.d'
-      - '/data/openldap/certs:/container/service/slapd/assets/certs/'
-    ports:
-      - "389:389"
-      - "636:636"
-    domainname: "cpnv-srw3.ch"
-    hostname: "ldap"
-  phpldapadmin:
-    image: osixia/phpldapadmin:latest
-    container_name: phpldapadmin
-    environment:
-      PHPLDAPADMIN_LDAP_HOSTS: "openldap"
-      PHPLDAPADMIN_HTTPS: "false"
-    ports:
-      - "8080:80"
-    depends_on:
-      - openldap
-
 version: '3.3'
 services:
   openldap:
     image: osixia/openldap:latest
     container_name: openldap
+    # build: ./ldap
     hostname: openldap
     ports: 
       - "389:389"
@@ -66,18 +13,15 @@ services:
       - /data/slapd/database:/var/lib/ldap
       - /data/slapd/config:/etc/ldap/slapd.d
     environment: 
-      - LDAP_ORGANISATION="cpnv-srw3"
-      - LDAP_DOMAIN="cpnv-srw3.ch"
+      - LDAP_ORGANISATION=cpnv-srw3
+      - LDAP_DOMAIN=cpnv-srw3.ch
       - LDAP_ADMIN_USERNAME=admin
       - LDAP_ADMIN_PASSWORD=admin_pass
       - LDAP_CONFIG_PASSWORD=conf_pass
-      - LDAP_BASE_DN="dc=cpnv-srw3,dc=ch"
+      - "LDAP_BASE_DN=dc=cpnv-srw3,dc=ch"
       - LDAP_TLS_CRT_FILENAME=server.crt
       - LDAP_TLS_KEY_FILENAME=server.key
-      - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.crt
-      - LDAP_READONLY_USER=true
-      - LDAP_READONLY_USER_USERNAME=user-ro
-      - LDAP_READONLY_USER_PASSWORD=useer_pass
+      - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.cr
     networks:
       - srw3
   
@@ -98,8 +42,3 @@ services:
 networks:
   srw3:
     driver: bridge
-
-
-      - LDAP_USER_DC="dc=People,dc=cpnv-srw3,dc=ch"
-      - LDAP_USERS="user01,user02"
-      - LDAP_PASSWORDS="Mot2Pa$$301,Mot2Pa$$302"
