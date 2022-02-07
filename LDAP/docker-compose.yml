@@ -3,7 +3,7 @@ services:
   openldap:
     image: osixia/openldap:latest
     container_name: openldap
-    # build: ./ldap
+    build: ./ldap
     hostname: openldap
     ports: 
       - "389:389"
