@@ -12,18 +12,9 @@ services:
       - /data/openldap/slapd/database:/var/lib/ldap
       - /data/openldap/slapd/config:/etc/ldap/slapd.d
     environment: 
-      - LDAP_ORGANISATION=cpnv-srw3
-      - LDAP_DOMAIN=cpnv-srw3.ch
-      - LDAP_ADMIN_USERNAME=admin
-      - LDAP_ADMIN_PASSWORD=admin_pass
-      - LDAP_CONFIG_PASSWORD=conf_pass
-      - "LDAP_BASE_DN=dc=cpnv-srw3,dc=ch"
       - LDAP_TLS_CRT_FILENAME=server.crt
       - LDAP_TLS_KEY_FILENAME=server.key
       - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.crt
-      - LDAP_READONLY_USER=true
-      - LDAP_READONLY_USER_USERNAME=user-ro
-      - LDAP_READONLY_USER_PASSWORD=useer_pass
     networks:
       - srw3
   
