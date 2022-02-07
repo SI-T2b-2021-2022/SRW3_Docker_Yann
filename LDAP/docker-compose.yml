@@ -51,3 +51,55 @@ services:
       - "8080:80"
     depends_on:
       - openldap
+
+version: '3.3'
+services:
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    hostname: openldap
+    ports: 
+      - "389:389"
+      - "636:636"
+    volumes:
+      - /data/certificates:/container/service/slapd/assets/certs
+      - /data/slapd/database:/var/lib/ldap
+      - /data/slapd/config:/etc/ldap/slapd.d
+    environment: 
+      - LDAP_ORGANISATION="cpnv-srw3"
+      - LDAP_DOMAIN="cpnv-srw3.ch"
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=admin_pass
+      - LDAP_CONFIG_PASSWORD=conf_pass
+      - LDAP_BASE_DN="dc=cpnv-srw3,dc=ch"
+      - LDAP_TLS_CRT_FILENAME=server.crt
+      - LDAP_TLS_KEY_FILENAME=server.key
+      - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.crt
+      - LDAP_READONLY_USER=true
+      - LDAP_READONLY_USER_USERNAME=user-ro
+      - LDAP_READONLY_USER_PASSWORD=useer_pass
+    networks:
+      - srw3
+  
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    hostname: phpldapadmin
+    ports: 
+      - "80:80"
+    environment: 
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+      - PHPLDAPADMIN_HTTPS=false
+    depends_on:
+      - openldap
+    networks:
+      - srw3
+
+networks:
+  srw3:
+    driver: bridge
+
+
+      - LDAP_USER_DC="dc=People,dc=cpnv-srw3,dc=ch"
+      - LDAP_USERS="user01,user02"
+      - LDAP_PASSWORDS="Mot2Pa$$301,Mot2Pa$$302"
