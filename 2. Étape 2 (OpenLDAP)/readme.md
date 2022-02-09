@@ -8,7 +8,7 @@ https://yannsolliard.notion.site/LDAP-caa6570292ba488ba734b5e7ec40ec0f
 
 [Docker Hub](https://hub.docker.com/r/bitnami/openldap/)
 
-<aside>
+```Bash
 ⚠️ **Attention :** 
 
 Pour utiliser ce docker-compose.yml il faut créer une arborescence comme suit :
@@ -18,8 +18,7 @@ Pour utiliser ce docker-compose.yml il faut créer une arborescence comme suit :
 └── ldap
         ├── bootstrap.ldif
         └── Dockerfile
-
-</aside>
+```
 
 ## docker-compose.yml
 
