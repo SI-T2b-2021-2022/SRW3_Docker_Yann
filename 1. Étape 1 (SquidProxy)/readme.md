@@ -22,8 +22,11 @@ services:
 ### Explication docker-compose.yml
 
 >**Image :** datadog/squid ← (repository/image docker)
+
 >**container_name :** squid_proxy ←(N’importe quel nom)
+
 >**ports :** redirection port 80 vers 3128
+
 >**volumes :** afin de consulter les logs et ce qui se trouve en cache les volumes on été monté dans un répertoire défini.
 
 ## Sources
