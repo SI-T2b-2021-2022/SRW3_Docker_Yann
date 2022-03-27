@@ -1,0 +1,26 @@
+version: "3.3"
+
+networks:
+  srw3:
+    driver: bridge
+
+services:
+  pihole:
+    container_name: pihole
+    hostname: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "81:80/tcp"
+    environment:
+      TZ: 'Europe/Zurich'
+    volumes:
+      - '/data/pihole/etc:/etc/pihole'
+      - '/data/pihole/dnsmasq:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: always
+    networks:
+      - srw3
