@@ -1,0 +1,4 @@
+2022/03/27 14:40:19 [error] 280#280: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 10.10.0.40, server: nginxproxymanager, request: "GET /api/ HTTP/1.1", upstream: "http://127.0.0.1:3000/", host: "10.10.10.2:82", referrer: "http://10.10.10.2:82/"
+2022/03/27 14:40:24 [error] 280#280: *4 connect() failed (111: Connection refused) while connecting to upstream, client: 10.10.0.40, server: nginxproxymanager, request: "POST /api/tokens HTTP/1.1", upstream: "http://127.0.0.1:3000/tokens", host: "10.10.10.2:82", referrer: "http://10.10.10.2:82/login"
+2022/03/27 14:42:39 [warn] 229#229: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
+2022/03/27 14:43:32 [warn] 229#229: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
