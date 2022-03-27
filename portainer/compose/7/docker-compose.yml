@@ -1,0 +1,41 @@
+version: '3.3'
+
+networks: 
+  cpnv_srw3.docker: 
+    external: 
+      name: cpnv_srw3.docker 
+
+services:
+  wordpress:
+    image: wordpress
+    restart: always
+    hostname: wordpress
+    container_name: wordpress
+#    ports:
+#      - 8081:80
+    networks:
+      - cpnv_srw3.docker
+    environment:
+      WORDPRESS_DB_HOST: wordpressdb
+      WORDPRESS_DB_USER: wdbuser
+      WORDPRESS_DB_PASSWORD: wdbpass
+      WORDPRESS_DB_NAME: wdb
+    volumes:
+      - /data/wordpress/www:/var/www/html
+    depends_on:
+      - wordpressdb
+
+  wordpressdb:
+    image: mysql:latest
+    restart: always
+    hostname: wordpressdb
+    container_name: wordpressdb
+    networks:
+      - cpnv_srw3.docker
+    environment:
+      MYSQL_DATABASE: wdb
+      MYSQL_USER: wdbuser
+      MYSQL_PASSWORD: wdbpass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - /data/mysql_wordpress:/var/lib/mysql
