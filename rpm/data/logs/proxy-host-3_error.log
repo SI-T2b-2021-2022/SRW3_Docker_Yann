@@ -1,0 +1,1 @@
+2022/03/27 14:49:46 [warn] 326#326: *197 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/5/00/0000000005 while reading upstream, client: 10.10.0.40, server: pt.cpnv-srw3.ch, request: "GET /api/motd HTTP/1.1", upstream: "https://10.10.10.2:9443/api/motd", host: "pt.cpnv-srw3.ch", referrer: "http://pt.cpnv-srw3.ch/"
