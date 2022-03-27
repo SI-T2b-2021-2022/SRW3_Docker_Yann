@@ -1,0 +1,39 @@
+version: '3.3'
+
+networks: 
+  cpnv_srw3.docker: 
+    external: 
+      name: cpnv_srw3.docker 
+
+services:
+  postgres:
+    container_name: postgres-cas
+    image: postgres
+    hostname: postgres-cas
+    volumes:
+      - /data/postgres/:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: password
+    networks:
+      - cpnv_srw3.docker
+  keycloak:
+    image: jboss/keycloak
+    container_name: keycloak
+    hostname: keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_SCHEMA: public
+      DB_PASSWORD: password
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+#    ports:
+#      - 8080:8080
+    depends_on:
+       - postgres
+    networks:
+      - cpnv_srw3.docker

@@ -1,0 +1,2 @@
+2022/03/27 14:56:12 [error] 377#377: *629 keycloak could not be resolved (3: Host not found), client: 10.10.0.40, server: keycloak.cpnv-srw3.ch, request: "GET / HTTP/1.1", host: "keycloak.cpnv-srw3.ch", referrer: "http://proxy.cpnv-srw3.ch/"
+2022/03/27 14:56:12 [error] 377#377: *629 keycloak could not be resolved (3: Host not found), client: 10.10.0.40, server: keycloak.cpnv-srw3.ch, request: "GET /favicon.ico HTTP/1.1", host: "keycloak.cpnv-srw3.ch", referrer: "http://keycloak.cpnv-srw3.ch/"
