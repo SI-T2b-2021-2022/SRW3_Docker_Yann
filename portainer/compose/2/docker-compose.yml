@@ -16,6 +16,7 @@ services:
       - "81:80/tcp"
     environment:
       TZ: 'Europe/Zurich'
+      DNSMASQ_USER: 'root'
     volumes:
       - '/data/pihole/etc:/etc/pihole'
       - '/data/pihole/dnsmasq:/etc/dnsmasq.d'
