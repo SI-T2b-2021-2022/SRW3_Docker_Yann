@@ -30,6 +30,7 @@ services:
       - LDAP_TLS_CA_CRT_FILENAME=cpnv-srw3.ch.ca.crt
     networks:
       - cpnv_srw3.docker
+    restart: always
   
   phpldapadmin:
     image: osixia/phpldapadmin:latest
@@ -44,3 +45,4 @@ services:
       - openldap
     networks:
       - cpnv_srw3.docker
+    restart: always
