@@ -58,3 +58,4 @@
 [27/Mar/2022:16:12:54 +0000] 444 - GET https keycloak.cpnv-srw3.ch "/auth/admin/" [Client 10.10.0.144] [Length 0] [Gzip -] "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0 Waterfox/91.7.0" "-"
 [27/Mar/2022:16:12:54 +0000] 444 - GET https keycloak.cpnv-srw3.ch "/auth/admin/" [Client 10.10.0.144] [Length 0] [Gzip -] "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0 Waterfox/91.7.0" "-"
 [27/Mar/2022:16:12:54 +0000] 444 - GET https keycloak.cpnv-srw3.ch "/auth/admin/" [Client 10.10.0.144] [Length 0] [Gzip -] "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0 Waterfox/91.7.0" "-"
+[27/Mar/2022:16:49:19 +0000] 200 - GET http 10.10.10.2 "/" [Client 172.20.0.1] [Length 1033] [Gzip -] "curl/7.74.0" "-"
