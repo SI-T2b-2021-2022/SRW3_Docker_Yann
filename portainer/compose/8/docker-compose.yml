@@ -1,17 +1,40 @@
 version: '3.3'
-
 networks: 
   cpnv_srw3.docker: 
     external: 
       name: cpnv_srw3.docker
 
 services:
+  mariadb-moodle:
+    container_name: mariadb-moodle
+    restart: always
+    image: docker.io/bitnami/mariadb:10.3
+    hostname: mariadb-moodle
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=bn_moodle
+      - MARIADB_DATABASE=bitnami_moodle
+      - MARIADB_CHARACTER_SET=utf8mb4
+      - MARIADB_COLLATE=utf8mb4_unicode_ci
+    volumes:
+      - '/data/moodledata/mariadb:/bitnami/mariadb'
+    networks:
+      - cpnv_srw3.docker
   moodle:
     container_name: moodle
     restart: always
-    image: moodlehq/moodle-php-apache:8.1-bullseye
+    image: docker.io/bitnami/moodle:latest
     hostname: moodle
+    environment:
+      - MOODLE_DATABASE_HOST=mariadb-moodle
+      - MOODLE_DATABASE_PORT_NUMBER=3306
+      - MOODLE_DATABASE_USER=bn_moodle
+      - MOODLE_DATABASE_NAME=bitnami_moodle
+      - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - '/data/moodle/:/var/www/html'
+      - '/data/moodledata/moodle:/bitnami/moodle'
+      - '/data/moodledata/datamoodle:/bitnami/moodledata'
     networks:
       - cpnv_srw3.docker
+    depends_on:
+      - mariadb-moodle
