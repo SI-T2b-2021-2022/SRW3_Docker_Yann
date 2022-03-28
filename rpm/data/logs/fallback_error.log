@@ -54,3 +54,14 @@
 2022/03/28 04:57:44 [warn] 228#228: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
 2022/03/28 05:57:44 [warn] 228#228: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
 2022/03/28 07:15:35 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
+2022/03/28 08:07:12 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
+2022/03/28 08:15:35 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
+2022/03/28 08:23:23 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:15
+2022/03/28 08:23:30 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:23:37 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:24:08 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:24:15 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:41:52 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:42:47 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:43:15 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18
+2022/03/28 08:52:09 [warn] 231#231: server name "ns.cpnv-srw3.ch/admin/" has suspicious symbols in /data/nginx/proxy_host/1.conf:18

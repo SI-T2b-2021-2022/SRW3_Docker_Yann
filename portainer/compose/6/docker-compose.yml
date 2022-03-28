@@ -33,6 +33,9 @@ services:
       DB_PASSWORD: password
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
+      PROXY_ADDRESS_FORWARDING: "true"
+      REDIRECT_SOCKET: "proxy-https"
+      KEYCLOAK_FRONTEND_URL: https://keycloak.cpnv-srw3.ch/auth
 #    ports:
 #      - 8080:8080
     depends_on:

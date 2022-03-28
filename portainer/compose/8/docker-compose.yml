@@ -1,0 +1,17 @@
+version: '3.3'
+
+networks: 
+  cpnv_srw3.docker: 
+    external: 
+      name: cpnv_srw3.docker
+
+services:
+  moodle:
+    container_name: moodle
+    restart: always
+    image: moodlehq/moodle-php-apache:8.1-bullseye
+    hostname: moodle
+    volumes:
+      - '/data/moodle/:/var/www/html'
+    networks:
+      - cpnv_srw3.docker
