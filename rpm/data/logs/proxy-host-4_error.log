@@ -1,0 +1,1 @@
+2022/03/31 07:17:17 [warn] 315#315: *3 an upstream response is buffered to a temporary file /var/cache/nginx/proxy_temp/1/00/0000000001 while reading upstream, client: 10.10.0.40, server: ldap.cpnv-srw3.ch, request: "GET /images/default/logo.png HTTP/2.0", upstream: "http://172.20.0.6:80/images/default/logo.png", host: "ldap.cpnv-srw3.ch", referrer: "https://ldap.cpnv-srw3.ch/"
